@@ -8,5 +8,8 @@ module Pluct
         super
       end
     end
+
+    class UrlNotFound  < PluctErrors; end;
+    class Unauthorized < PluctErrors; end;
   end
 end

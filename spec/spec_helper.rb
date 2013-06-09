@@ -1,3 +1,7 @@
+require 'pry'
+require 'pry-nav'
+require 'webmock/rspec'
+require_relative '../lib/pluct'
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
@@ -10,3 +14,4 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 end
+
