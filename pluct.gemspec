@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["albertonb@gmail.com"]
   spec.description   = %q{json-schema hypermedia client}
   spec.summary       = %q{json-schema hypermedia client}
-  spec.homepage      = ""
+  spec.homepage      = "http://github.com/albertoleal/pluct"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -20,4 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "multi_json"
 end

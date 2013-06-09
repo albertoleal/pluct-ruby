@@ -1,5 +1,5 @@
 require "pluct/version"
 
 module Pluct
-  # Your code goes here...
+  autoload :Errors, "pluct/errors"
 end
