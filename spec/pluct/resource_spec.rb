@@ -45,7 +45,7 @@ describe Pluct::Resource do
     expect(user.data).to eq resource_data
   end
 
-  it 'adds methods', :focus do
+  it 'adds methods' do
     methods = [:edit, :replace, :self, :delete, :create]
     methods.each do |method|
       expect(user.class.instance_methods(false)).to include(method)

@@ -1,7 +1,11 @@
 require 'pry'
 require 'pry-nav'
 require 'webmock/rspec'
+require 'vcr'
 require_relative '../lib/pluct'
+
+Dir[File.join Pluct.root, "spec/support/**/*.rb"].each {|f| require f}
+
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
@@ -13,5 +17,9 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = 'random'
-end
 
+  #Configuring VCR gem
+  config.around(:each, :vcr) do |example|
+    VCR.use_cassette(example.metadata[:cassette_name]) { example.call }
+  end  
+end

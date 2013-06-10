@@ -8,7 +8,8 @@ module Pluct
       }
 
       protected
-      def get(url, options={})
+      def get(url, *opts)
+        options = Hash[*opts]
         resource = RestClient::Resource.new(url)
         resource.get(DEFAULT_HEADERS.merge(options))
       rescue RestClient::Exception => e
