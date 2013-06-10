@@ -1,0 +1,46 @@
+{
+  "title" : "Users",
+  "properties" : {
+    "name" : {
+      "type" : "string"
+    },
+    "age": {
+      "type" : "integer"
+    }
+  },
+  "links": [
+      {
+        "href": "http://example.org/baas/users/{resource_id}",
+        "rel": "item"
+      },
+      
+      {
+        "href": "http://example.org/baas/users/{resource_id}",
+        "method": "PATCH",
+        "rel": "edit"
+      },
+      
+      {
+        "href": "http://example.org/baas/users/{resource_id}",
+        "method": "PUT",
+        "rel": "replace"
+      },
+      
+      {
+        "href": "http://example.org/baas/users/{resource_id}",
+        "method": "DELETE",
+        "rel": "delete"
+      },
+      
+      {
+        "href": "http://example.org/baas/users",
+        "rel": "self"
+      },
+      
+      {
+        "href": "http://example.org/baas/users",
+        "method": "POST",
+        "rel": "create"
+      }
+  ]
+}

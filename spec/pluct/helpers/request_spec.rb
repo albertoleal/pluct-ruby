@@ -20,8 +20,8 @@ describe Pluct::Helpers::Request do
     end
   end
 
-  it 'returns 200 for valid request' do
-    body = File.read('spec/assets/root.json')
+    it 'returns 200 for valid request' do
+    body = File.read('spec/assets/user.json')
     stub_request(:get, 'http://www.example.com/success').to_return(body: body, status: 200)
     response = client.send(:get, 'http://www.example.com/success')
 
