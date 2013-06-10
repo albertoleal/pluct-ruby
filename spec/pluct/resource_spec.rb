@@ -2,15 +2,15 @@ require 'spec_helper'
 
 describe Pluct::Resource do
   before(:each) do
-    stub_request(:get, 'www.example.com/user/1').to_return(body: File.read('spec/assets/user.json'), 
+    stub_request(:get, 'www.example.com/users/1').to_return(body: File.read('spec/assets/user.json'), 
                                                            status: 200, 
                                                            headers: {'content-type' => 'application/json; charset=utf-8; profile=http://www.example.com/schemas/user'})
 
 
-    stub_request(:get, 'www.example.com/user/2').to_return(body: File.read('spec/assets/user.json'), 
+    stub_request(:get, 'www.example.com/users/2').to_return(body: File.read('spec/assets/user.json'), 
                                                            status: 200)
     
-    stub_request(:get, 'www.example.com/user/3').to_return(body: File.read('spec/assets/user.json'), 
+    stub_request(:get, 'www.example.com/users/3').to_return(body: File.read('spec/assets/user.json'), 
                                                            status: 200,
                                                            headers: {'content-type' => 'application/json; charset=utf-8;'})
     
@@ -19,9 +19,9 @@ describe Pluct::Resource do
     
   end
 
-  let(:user) { Pluct::Resource.new 'www.example.com/user/1' }
-  let(:user_without_content_type) { Pluct::Resource.new 'www.example.com/user/2' }
-  let(:user_without_schema) { Pluct::Resource.new 'www.example.com/user/3' }
+  let(:user) { Pluct::Resource.new 'www.example.com/users/1' }
+  let(:user_without_content_type) { Pluct::Resource.new 'www.example.com/users/2' }
+  let(:user_without_schema) { Pluct::Resource.new 'www.example.com/users/3' }
 
   it 'return "nil" when missing schema url' do
     expect(user_without_content_type.schema).to be_nil
@@ -40,4 +40,15 @@ describe Pluct::Resource do
     expect(user_schema).to eq schema
   end
 
+  it 'has resource data' do
+    resource_data = File.read('spec/assets/user.json')
+    expect(user.data).to eq resource_data
+  end
+
+  it 'adds methods', :focus do
+    methods = [:edit, :replace, :self, :delete, :create]
+    methods.each do |method|
+      expect(user.class.instance_methods(false)).to include(method)
+    end
+  end
 end 
