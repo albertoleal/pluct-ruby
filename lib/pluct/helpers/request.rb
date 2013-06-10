@@ -3,15 +3,14 @@ require 'rest_client'
 module Pluct
   module Helpers
     module Request
-
       DEFAULT_HEADERS = {
         'content-type' => 'application/json'
       }
 
+      protected
       def get(url, options={})
         resource = RestClient::Resource.new(url)
-        response = resource.get(DEFAULT_HEADERS.merge(options))
-        response.body
+        resource.get(DEFAULT_HEADERS.merge(options))
       rescue RestClient::Exception => e
         raise_exception(e)
       end
