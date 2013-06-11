@@ -1,6 +1,6 @@
 # Pluct
 
-TODO: Write a gem description
+WIP
 
 ## Installation
 
@@ -18,7 +18,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'pluct'
+    resource = Pluct.get_resource 'http://repos.plataformas.glb.com/interatividade/famosos'
+    resource.schema
+    resource.schema.data
+    resource.data
 
 ## Contributing
 
