@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "hashie"
   spec.add_development_dependency "multi_json"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rest-client"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "vcr"
   spec.add_development_dependency "webmock"
