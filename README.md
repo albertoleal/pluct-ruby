@@ -21,9 +21,9 @@ Or install it yourself as:
 ```ruby
 require 'pluct'
 resource = Pluct.get_resource 'http://example.org/posts'
-resource.schema
-resource.schema.data
-resource.data
+p resource.schema
+p resource.schema.data
+p resource.data
 ```
 ## Contributing
 

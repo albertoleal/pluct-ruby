@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["albertonb@gmail.com"]
   spec.description   = %q{json-schema hypermedia client}
   spec.summary       = %q{json-schema hypermedia client}
-  spec.homepage      = "http://github.com/albertoleal/pluct"
+  spec.homepage      = "http://github.com/globocom/pluct"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
