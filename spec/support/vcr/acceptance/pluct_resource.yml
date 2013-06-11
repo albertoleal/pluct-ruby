@@ -25,7 +25,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8; profile=http://repos.example.com/interatividade/schemas/famoso-collection
       Date:
-      - Mon, 10 Jun 2013 16:58:23 GMT
+      - Tue, 11 Jun 2013 13:20:45 GMT
       Etag:
       - ! '"504bb93b367e8d268b6f4d28ea50c788bd96d60b"'
       Link:
@@ -50,7 +50,7 @@ http_interactions:
         "method": "POST", "rel": "create", "schema": {"$ref": "http://repos.example.com/interatividade/schemas/famoso"}}],
         "item_count": 2}'
     http_version: 
-  recorded_at: Mon, 10 Jun 2013 16:57:39 GMT
+  recorded_at: Tue, 11 Jun 2013 13:20:03 GMT
 - request:
     method: get
     uri: http://repos.example.com/interatividade/schemas/famoso-collection
@@ -76,7 +76,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 10 Jun 2013 16:58:23 GMT
+      - Tue, 11 Jun 2013 13:20:46 GMT
       Etag:
       - ! '"255aaff177c521d6807d015ce8021c92f20a67ec"'
       Server:
@@ -94,7 +94,7 @@ http_interactions:
         "rel": "prev"}, {"href": "http://repos.example.com/interatividade/famosos?page={next_page}",
         "rel": "next"}]}'
     http_version: 
-  recorded_at: Mon, 10 Jun 2013 16:57:39 GMT
+  recorded_at: Tue, 11 Jun 2013 13:20:03 GMT
 - request:
     method: get
     uri: http://repos.example.com/interatividade/famosos
@@ -120,7 +120,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8; profile=http://repos.example.com/interatividade/schemas/famoso-collection
       Date:
-      - Mon, 10 Jun 2013 16:58:23 GMT
+      - Tue, 11 Jun 2013 13:20:46 GMT
       Etag:
       - ! '"504bb93b367e8d268b6f4d28ea50c788bd96d60b"'
       Link:
@@ -145,5 +145,56 @@ http_interactions:
         "method": "POST", "rel": "create", "schema": {"$ref": "http://repos.example.com/interatividade/schemas/famoso"}}],
         "item_count": 2}'
     http_version: 
-  recorded_at: Mon, 10 Jun 2013 16:57:39 GMT
+  recorded_at: Tue, 11 Jun 2013 13:20:03 GMT
+- request:
+    method: get
+    uri: http://repos.example.com/interatividade/famosos
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Content-Type:
+      - application/json; charset=UTF-8; profile=http://repos.example.com/interatividade/schemas/famoso-collection
+      Date:
+      - Tue, 11 Jun 2013 13:20:46 GMT
+      Etag:
+      - ! '"504bb93b367e8d268b6f4d28ea50c788bd96d60b"'
+      Link:
+      - <http://repos.example.com/interatividade/schemas/famoso-collection>;
+        rel=describedby
+      Server:
+      - nginx/1.1.19
+      Content-Length:
+      - '948'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"items": [{"cadun_id": 1, "name": "Alberto", "resource_id":
+        "4c7829d7ff4f4e428f6f1571f7a3f760"}, {"cadun_id": 2, "name": "Nathalia", "resource_id":
+        "afa8bad7b7734cabb63d720b6470afcf"}], "links": [{"href": "http://repos.example.com/interatividade/famosos/{resource_id}",
+        "rel": "item"}, {"href": "http://repos.example.com/interatividade/famosos/{resource_id}",
+        "method": "PATCH", "rel": "edit"}, {"href": "http://repos.example.com/interatividade/famosos/{resource_id}",
+        "method": "PUT", "rel": "replace"}, {"href": "http://repos.example.com/interatividade/famosos/{resource_id}",
+        "method": "DELETE", "rel": "delete"}, {"href": "http://repos.example.com/interatividade/famosos",
+        "rel": "self"}, {"href": "http://repos.example.com/interatividade/famosos",
+        "method": "POST", "rel": "create", "schema": {"$ref": "http://repos.example.com/interatividade/schemas/famoso"}}],
+        "item_count": 2}'
+    http_version: 
+  recorded_at: Tue, 11 Jun 2013 13:20:03 GMT
 recorded_with: VCR 2.5.0

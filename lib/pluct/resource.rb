@@ -1,16 +1,18 @@
 module Pluct
-  class Resource < OpenStruct
+  class Resource 
     include Pluct::Helpers::Request
+
+    attr_reader :url, :data, :schema
 
     def initialize(url, schema)
       @url = url
-      @data = data
+      @data = get_data
       @schema = schema
       Resource.create_methods(@schema.links) if @schema
     end
 
     #TODO: Authenticate the request if necessary.
-    def data
+    def get_data
       get @url
     end
 

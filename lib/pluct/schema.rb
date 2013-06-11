@@ -1,15 +1,21 @@
 module Pluct
-  class Schema < OpenStruct
+  class Schema
     include Pluct::Helpers::Request
+
+    attr_reader :path, :data, :links
     
     def initialize(path)
       @path = path
-      @data = data
+      @data = get_content
       @links = @data.links
     end
     
+    def to_s
+      @path  
+    end
+
     private
-    def data
+    def get_content
       ::MultiJson.decode(get(@path))
     end
   end

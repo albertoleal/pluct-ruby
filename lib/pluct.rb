@@ -6,10 +6,11 @@ module Pluct
   autoload :Errors,   "pluct/errors"
   autoload :Helpers,  "pluct/helpers"
   autoload :Resource, "pluct/resource"
+  autoload :Schema,   "pluct/schema"
 
-  include Pluct::Helpers::Request
+  extend Pluct::Helpers::Request
   
-  def self.spike(path)
+  def self.get_resource(path)
     request = get(path)
     schema = schema_from_header(request.headers)
     resource = Resource.new(path, schema)
@@ -20,7 +21,7 @@ module Pluct
   end
   
   private
-  def schema_from_header(headers)
+  def self.schema_from_header(headers)
     return nil unless headers[:content_type] 
     
     schema = headers[:content_type].match('.*profile=([^;]+);?')

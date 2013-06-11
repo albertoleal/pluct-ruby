@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe Pluct::Resource do
+  let(:schema) { mock(Pluct::Schema) }
+  let(:user) { Pluct::Resource.new 'www.example.com/users/1', schema }
+  let(:user_without_content_type) { Pluct::Resource.new 'www.example.com/users/2' }
+  let(:user_without_schema) { Pluct::Resource.new 'www.example.com/users/3' }
+  let(:user_schema) { MultiJson.decode(File.read('spec/assets/user_schema.json')) }
+
   before(:each) do
     stub_request(:get, 'www.example.com/users/1').to_return(body: File.read('spec/assets/user.json'), 
                                                            status: 200, 
@@ -17,28 +23,7 @@ describe Pluct::Resource do
     stub_request(:get, 'www.example.com/schemas/user').to_return(body: File.read('spec/assets/user_schema.json'),
                                                                  status: 200)
     
-  end
-
-  let(:user) { Pluct::Resource.new 'www.example.com/users/1' }
-  let(:user_without_content_type) { Pluct::Resource.new 'www.example.com/users/2' }
-  let(:user_without_schema) { Pluct::Resource.new 'www.example.com/users/3' }
-
-  #FIXME
-  xit 'return "nil" when missing schema url' do
-    expect(user_without_content_type.schema).to be_nil
-    expect(user_without_schema.schema).to be_nil
-  end
-
-  it 'has a schema url' do
-    expect(user.schema).to eq 'http://www.example.com/schemas/user'
-  end
-
-  it 'has a schema data' do
-    schema = MultiJson::decode(File.read('spec/assets/user_schema.json'))
-    user_schema = user.schema(false)
-
-    expect(user_schema).to be_instance_of Hash
-    expect(user_schema).to eq schema
+    schema.stub(:links).and_return(user_schema.links)
   end
 
   it 'has resource data' do
