@@ -18,12 +18,13 @@ Or install it yourself as:
 
 ## Usage
 
+```ruby
     require 'pluct'
     resource = Pluct.get_resource 'http://repos.plataformas.glb.com/interatividade/famosos'
     resource.schema
     resource.schema.data
     resource.data
-
+```
 ## Contributing
 
 1. Fork it
