@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ```ruby
 require 'pluct'
-resource = Pluct.get_resource 'http://repos.plataformas.glb.com/interatividade/famosos'
+resource = Pluct.get_resource 'http://example.org/posts'
 resource.schema
 resource.schema.data
 resource.data
