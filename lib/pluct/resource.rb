@@ -20,7 +20,7 @@ module Pluct
     def self.create_methods(links=[])
       links.each do |link|
         define_method link.rel do |*args|
-          method = "GET" || link["method"]
+          method = link["method"] || "GET"
           send(method.downcase, link.href, *args)
         end 
       end

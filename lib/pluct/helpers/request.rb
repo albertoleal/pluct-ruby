@@ -11,7 +11,8 @@ module Pluct
       def get(url, *opts)
         options = Hash[*opts]
         resource = RestClient::Resource.new(url)
-        resource.get(DEFAULT_HEADERS.merge(options))
+        options = DEFAULT_HEADERS.merge(options) || DEFAULT_HEADERS
+        resource.get(options)
       rescue RestClient::Exception => e
         raise_exception(e)
       end
@@ -19,7 +20,8 @@ module Pluct
       def head(url, *opts)
         options = Hash[*opts]
         resource = RestClient::Resource.new(url)
-        resource.head(DEFAULT_HEADERS.merge(options))
+        options = DEFAULT_HEADERS.merge(options) || DEFAULT_HEADERS
+        resource.head(options)
       rescue RestClient::Exception => e
         raise_exception(e)
       end
@@ -27,7 +29,8 @@ module Pluct
       def delete(url, *opts)
         options = Hash[*opts]
         resource = RestClient::Resource.new(url)
-        resource.delete(DEFAULT_HEADERS.merge(options))
+        options = DEFAULT_HEADERS.merge(options) || DEFAULT_HEADERS
+        resource.delete(options)
       rescue RestClient::Exception => e
         raise_exception(e)
       end
@@ -36,7 +39,8 @@ module Pluct
         data, options = *opts
         options = Hash[*opts] if options
         resource = RestClient::Resource.new(url)
-        resource.post(data, DEFAULT_HEADERS.merge(options))
+        options = DEFAULT_HEADERS.merge(options) || DEFAULT_HEADERS
+        resource.post(data.to_json, options)
       rescue RestClient::Exception => e
         raise_exception(e)
       end
@@ -45,7 +49,8 @@ module Pluct
         data, options = *opts
         options = Hash[*opts] if options
         resource = RestClient::Resource.new(url)
-        resource.put(data, DEFAULT_HEADERS.merge(options))
+        options = DEFAULT_HEADERS.merge(options) || DEFAULT_HEADERS
+        resource.put(data, options)
       rescue RestClient::Exception => e
         raise_exception(e)
       end
@@ -54,7 +59,8 @@ module Pluct
         data, options = *opts
         options = Hash[*opts] if options
         resource = RestClient::Resource.new(url)
-        resource.patch(data, DEFAULT_HEADERS.merge(options))
+        options = DEFAULT_HEADERS.merge(options) || DEFAULT_HEADERS
+        resource.patch(data, options)
       rescue RestClient::Exception => e
         raise_exception(e)
       end
