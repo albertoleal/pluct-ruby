@@ -38,7 +38,6 @@ module Pluct
       def post(url, *opts)
         data, options = *opts
         options = Hash[*opts] if options
-        binding.pry
         resource = RestClient::Resource.new(url)
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
         resource.post(data.to_json, options)
