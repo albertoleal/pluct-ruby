@@ -20,8 +20,17 @@ module Pluct
     def self.create_methods(links=[])
       links.each do |link|
         define_method link.rel do |*args|
+          query_string, *options = *args
           method = link["method"] || "GET"
-          send(method.downcase, link.href, *args)
+          href = link["href"]
+          
+          if query_string
+            href = Addressable::Template.new(href)
+            href = href.expand(query_string).to_s          
+          end
+
+          #query_string (uri_template), payload, headers
+          send(method.downcase, href, *options)
         end 
       end
     end

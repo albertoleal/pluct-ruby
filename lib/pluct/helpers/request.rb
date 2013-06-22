@@ -50,7 +50,7 @@ module Pluct
         options = Hash[*opts] if options
         resource = RestClient::Resource.new(url)
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
-        resource.put(data, options)
+        resource.put(data.to_json, options)
       rescue RestClient::Exception => e
         raise_exception(e)
       end
@@ -60,7 +60,7 @@ module Pluct
         options = Hash[*opts] if options
         resource = RestClient::Resource.new(url)
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
-        resource.patch(data, options)
+        resource.patch(data.to_json, options)
       rescue RestClient::Exception => e
         raise_exception(e)
       end
