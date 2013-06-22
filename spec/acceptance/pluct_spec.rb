@@ -7,7 +7,7 @@ describe Pluct, :acceptance do
     resource_self = MultiJson.decode(resource.self)
 
     expect(resource_self).to have_key("items")
-    expect(resource_self.item_count).to eq 2
+    expect(resource_self["item_count"]).to eq 2
   end
 
   it 'creates a new app', :vcr, cassette_name: 'acceptance/creates_new_app' do

@@ -7,7 +7,7 @@ module Pluct
     def initialize(path)
       @path = path
       @data = get_content
-      @links = @data.links
+      @links = @data["links"]
     end
     
     def to_s

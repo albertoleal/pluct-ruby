@@ -23,7 +23,7 @@ describe Pluct::Resource do
     stub_request(:get, 'www.example.com/schemas/user').to_return(body: File.read('spec/assets/user_schema.json'),
                                                                  status: 200)
     
-    schema.stub(:links).and_return(user_schema.links)
+    schema.stub(:links).and_return(user_schema["links"])
   end
 
   it 'has resource data' do
