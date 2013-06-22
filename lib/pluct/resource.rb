@@ -19,7 +19,7 @@ module Pluct
     private
     def self.create_methods(links=[])
       links.each do |link|
-        define_method link.rel do |*args|
+        define_method link["rel"] do |*args|
           query_string, *options = *args
           method = link["method"] || "GET"
           href = link["href"]
