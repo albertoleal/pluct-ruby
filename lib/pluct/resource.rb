@@ -30,10 +30,9 @@ module Pluct
           end
 
           #query_string (uri_template), payload, headers
-          p link["href"]
           response = send(method.downcase, href, *options)
            
-          self.new(link['href'], Schema.from_header(response.headers), response.body)  
+          self.new(href, Schema.from_header(response.headers), response.body)  
         end 
       end
     end
