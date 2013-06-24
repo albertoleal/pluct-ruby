@@ -14,7 +14,7 @@ module Pluct
       @path  
     end
     
-    def self.from_header(header)
+    def self.from_header(headers)
       return nil unless headers[:content_type] 
 
       schema = headers[:content_type].match('.*profile=([^;]+);?')
