@@ -31,6 +31,10 @@ module Pluct
 
           #query_string (uri_template), payload, headers
           send(method.downcase, href, *options)
+
+          # TODO no futura verificar se o response possui um schema,
+          # só assim retornar um resource
+          Pluct.get_resource href
         end 
       end
     end

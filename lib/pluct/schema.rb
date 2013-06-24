@@ -13,6 +13,15 @@ module Pluct
     def to_s
       @path  
     end
+    
+    def self.from_header(header)
+      return nil unless headers[:content_type] 
+
+      schema = headers[:content_type].match('.*profile=([^;]+);?')
+      return nil unless schema
+
+      Schema.new(schema[1])
+    end
 
     private
     def get_content
