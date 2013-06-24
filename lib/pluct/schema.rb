@@ -2,12 +2,18 @@ module Pluct
   class Schema
     include Pluct::Helpers::Request
 
-    attr_reader :path, :data, :links
+    attr_reader :path, :data
     
     def initialize(path)
       @path = path
-      @data = get_content
-      @links = @data["links"]
+    end
+    
+    def data
+      @data ||= ::MultiJson.decode(get(@path))
+    end
+    
+    def links
+      self.data["links"]
     end
     
     def to_s
@@ -21,11 +27,6 @@ module Pluct
       return nil unless schema
 
       Schema.new(schema[1])
-    end
-
-    private
-    def get_content
-      ::MultiJson.decode(get(@path))
     end
   end
 end
