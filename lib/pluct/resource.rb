@@ -22,15 +22,16 @@ module Pluct
         define_method link["rel"] do |*args|
           query_string, *options = *args
           method = link["method"] || "GET"
+          href = link["href"]
           
           if query_string
-            href = Addressable::Template.new(link["href"])
+            href = Addressable::Template.new(href)
             href = href.expand(query_string).to_s          
           end
 
           #query_string (uri_template), payload, headers
           p link["href"]
-          response = send(method.downcase, link["href"], *options)
+          response = send(method.downcase, href, *options)
            
           self.new(link['href'], Schema.from_header(response.headers), response.body)  
         end 
