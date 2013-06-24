@@ -32,7 +32,7 @@ module Pluct
           #query_string (uri_template), payload, headers
           response = send(method.downcase, href, *options)
            
-          self.new(href, Schema.from_header(response.headers), response.body)  
+          Resource.new(href, Schema.from_header(response.headers), response.body)  
         end 
       end
     end
