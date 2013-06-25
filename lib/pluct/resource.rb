@@ -31,7 +31,7 @@ module Pluct
           payload = query_string.dup
           query_string.merge!(JSON.parse(self.data))
           template = Addressable::Template.new(href)
-          uri = Addressable::URI.parse(template.expand(query_string).to_s)
+          uri = Addressable::URI.parse(template.expand(query_string).to_s)        
           uri_template = template.extract(uri)
           
           payload.delete_if{|key, value| uri_template.include?(key.to_s)}
@@ -47,3 +47,5 @@ module Pluct
     end
   end
 end
+
+# a.resource({context_name: 'baas', collection_name: 'apps', resource_id: 'a91ccc92d638499bbe1291f69c32dacd'}).edit({name: 'joaaaa', description: 'mmmmmm'})
