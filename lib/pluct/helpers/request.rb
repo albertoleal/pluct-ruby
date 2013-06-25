@@ -9,7 +9,7 @@ module Pluct
 
       protected
       def get(url, *opts)
-        options = Hash[*opts]
+        options = Hash[opts] if opts
         resource = RestClient::Resource.new(url)
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
         resource.get(options)
@@ -18,7 +18,7 @@ module Pluct
       end
 
       def head(url, *opts)
-        options = Hash[*opts]
+        options = Hash[opts] if opts
         resource = RestClient::Resource.new(url)
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
         resource.head(options)
@@ -27,7 +27,7 @@ module Pluct
       end
 
       def delete(url, *opts)
-        options = Hash[*opts]
+        options = Hash[opts] if opts
         resource = RestClient::Resource.new(url)
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
         resource.delete(options)
@@ -37,7 +37,7 @@ module Pluct
 
       def post(url, *opts)
         data, options = *opts
-        options = Hash[*opts] if options
+        options = Hash[opts] if options
         resource = RestClient::Resource.new(url)
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
         resource.post(data.to_json, options)
@@ -57,7 +57,7 @@ module Pluct
 
       def patch(url, *opts)
         data, options = *opts
-        options = Hash[*opts] if options
+        options = Hash[options] if options
         resource = RestClient::Resource.new(url)
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
         resource.patch(data.to_json, options)

@@ -21,11 +21,11 @@ module Pluct
     end
     
     def self.from_header(headers)
-      return nil unless headers[:content_type] 
-
+      return nil unless headers[:content_type]
+                  
       schema = headers[:content_type].match('.*profile=([^;]+);?')
-      return nil unless schema
-
+      return nil unless schema      
+      
       Schema.new(schema[1])
     end
   end

@@ -37,4 +37,10 @@ describe Pluct::Resource do
       expect(user.class.instance_methods(false)).to include(method)
     end
   end
+  
+  it "does something", :focus do
+    a = Pluct.get_resource 'http://localhost:8888'
+    #a.collection({context_name: 'baas', collection_name: 'apps'}).create({name: 'josefina', description: 'mehhh'}).edit({name: 'daeeelhe', description: 'daeeelhe'})
+    a.resource({context_name: 'baas', collection_name: 'apps', resource_id: '92502ae4980d41d1b671c0655f8efa6b'}).edit({name: 'josefina', description: 'mehhh'})
+  end
 end 
