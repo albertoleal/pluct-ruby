@@ -40,7 +40,7 @@ module Pluct
           #query_string (uri_template), payload, headers
           response = send(method.downcase, uri.to_s, *options)
           uri = response.headers[:location] if response.headers[:location]
-
+binding.pry
           Resource.new(href, Schema.from_header(response.headers), response.body)
         end 
       end
