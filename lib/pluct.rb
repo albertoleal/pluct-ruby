@@ -13,7 +13,7 @@ module Pluct
   def self.get_resource(path)
     request = get(path)
     schema = Schema.from_header(request.headers)
-    resource = Resource.new(path, schema)
+    resource = Resource.new(path, schema, request.body)
   end
   
   def self.root

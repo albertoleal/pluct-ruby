@@ -5,13 +5,16 @@ module Pluct
     attr_reader :url, :data, :schema
 
     def initialize(url, schema, data=nil)
-      @url = url
-      @data = data || get_data
+      @url = url      
+      @data = data
       @schema = schema
       Resource.create_methods(@schema.links) if @schema
     end
 
-
+    def data
+      @data ||= get_data
+    end
+    
     #TODO: Authenticate the request if necessary.
     def get_data
       get @url
@@ -26,8 +29,7 @@ module Pluct
           href = link["href"]
           
           payload = query_string.dup
-          query_string.merge!(JSON.parse(@data))
-
+          query_string.merge!(JSON.parse(self.data))
           template = Addressable::Template.new(href)
           uri = Addressable::URI.parse(template.expand(query_string).to_s)
           uri_template = template.extract(uri)
@@ -39,8 +41,7 @@ module Pluct
           response = send(method.downcase, uri.to_s, *options)
           uri = response.headers[:location] if response.headers[:location]
 
-          #Resource.new(href, Schema.from_header(response.headers), response.body)            
-          Pluct.get_resource(uri.to_s)
+          Resource.new(href, Schema.from_header(response.headers), response.body)
         end 
       end
     end
