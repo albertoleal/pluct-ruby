@@ -38,7 +38,7 @@ describe Pluct::Resource do
     end
   end
   
-  it "does something", :focus do
+  it "does something" do
     a = Pluct.get_resource 'http://localhost:8888'
     a.collection({context_name: 'baas', collection_name: 'apps'}).create({name: 'josefina', description: 'mehhh'}).edit({name: 'daeeelhe', description: 'daeeelhe'})
     # a.resource({context_name: 'baas', collection_name: 'apps', resource_id: 'a91ccc92d638499bbe1291f69c32dacd'}).edit({name: 'joaaaa', description: 'mmmmmm'})
