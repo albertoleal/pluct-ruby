@@ -14,7 +14,7 @@ module Pluct
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
         resource.get(options)
       rescue RestClient::Exception => e
-        raise_exception(e)
+        raise_exception(url, e)
       end
 
       def head(url, *opts)
@@ -23,7 +23,7 @@ module Pluct
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
         resource.head(options)
       rescue RestClient::Exception => e
-        raise_exception(e)
+        raise_exception(url, e)
       end
 
       def delete(url, *opts)
@@ -32,7 +32,7 @@ module Pluct
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
         resource.delete(options)
       rescue RestClient::Exception => e
-        raise_exception(e)
+        raise_exception(url, e)
       end
 
       def post(url, *opts)
@@ -42,7 +42,7 @@ module Pluct
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
         resource.post(data.to_json, options)
       rescue RestClient::Exception => e
-        raise_exception(e)
+        raise_exception(url, e)
       end
 
       def put(url, *opts)
@@ -52,7 +52,7 @@ module Pluct
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
         resource.put(data.to_json, options)
       rescue RestClient::Exception => e
-        raise_exception(e)
+        raise_exception(url, e)
       end
 
       def patch(url, *opts)
@@ -62,16 +62,16 @@ module Pluct
         options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
         resource.patch(data.to_json, options)
       rescue RestClient::Exception => e
-        raise_exception(e)
+        raise_exception(url, e)
       end
 
       private
-      def raise_exception(exception)
+      def raise_exception(url, exception)
         case exception.http_code
           when 401
-             raise Pluct::Errors::Unauthorized, {http_code: 401, error_description: exception.http_body} 
+             raise Pluct::Errors::Unauthorized, {http_code: 401, error_description: "Url: #{url} - Exception Message: #{exception.message}"}
           when 404
-             raise Pluct::Errors::UrlNotFound, {http_code: 404, error_description: exception.http_body} 
+             raise Pluct::Errors::UrlNotFound, {http_code: 404, error_description: "Url: #{url} - Exception Message: #{exception.message}"}
         end
       end
     end

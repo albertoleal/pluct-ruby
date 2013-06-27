@@ -43,6 +43,7 @@ describe Pluct::Resource do
         expect(resource.class.instance_methods(false)).to include(method)
       end
     end
+
   end
 
   context 'invalid header' do
