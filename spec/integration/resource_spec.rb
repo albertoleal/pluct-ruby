@@ -20,4 +20,12 @@ describe Pluct::Resource, :integration do
   it 'raises 404 for url not found', :vcr, cassette_name: 'integration/page_not_found' do
     expect {resource.resource({context_name: 'baas', collection_name: 'apps', resource_id: 'invalid'}) }.to raise_error(Pluct::Errors::UrlNotFound)
   end
+
+  it 'reads instance info', :vcr, cassette_name: 'integration/instance_info' do
+    app = resource.resource({context_name: 'baas', collection_name: 'apps', resource_id: '9b0d0333302a42d3bc8ee00b0afa2121'})
+
+    expect(app.data).to_not be_empty
+    expect(app.name).to eq 'New App'
+    expect(app.description).to eq 'My Awesome App'
+  end
 end

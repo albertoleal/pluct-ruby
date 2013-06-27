@@ -7,7 +7,7 @@ require 'pluct/version'
 module Pluct
   autoload :Errors,   "pluct/errors"
   autoload :Helpers,  "pluct/helpers"
-  autoload :Errors,   "extensions/json"
+  autoload :JSON,     "pluct/extensions/json"
   autoload :Resource, "pluct/resource"
   autoload :Schema,   "pluct/schema"
 
