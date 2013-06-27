@@ -1,0 +1,221 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:8888/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '2'
+      Server:
+      - TornadoServer/2.4.1
+      Etag:
+      - ! '"bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f"'
+      Link:
+      - <http://localhost:8888/root/schemas/root>; rel=describedby
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Content-Type:
+      - application/json; charset=UTF-8; profile=http://localhost:8888/root/schemas/root
+    body:
+      encoding: US-ASCII
+      string: ! '{}'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 17:42:50 GMT
+- request:
+    method: get
+    uri: http://localhost:8888/root/schemas/root
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '336'
+      Server:
+      - TornadoServer/2.4.1
+      Etag:
+      - ! '"4ab873749b4a4a304b67e1b1350eadd89e9bb3c0"'
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: US-ASCII
+      string: ! '{"links": [{"href": "http://localhost:8888", "rel": "self"}, {"href":
+        "http://localhost:8888/{context_name}", "rel": "context"}, {"href": "http://localhost:8888/{context_name}/{collection_name}",
+        "rel": "collection"}, {"href": "http://localhost:8888/{context_name}/{collection_name}/{resource_id}",
+        "rel": "resource"}], "title": "Root"}'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 17:42:50 GMT
+- request:
+    method: get
+    uri: http://localhost:8888/baas/apps
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '1736'
+      Server:
+      - TornadoServer/2.4.1
+      Etag:
+      - ! '"7841e8ac445151f4e77453bde1de4857f68168ec"'
+      Link:
+      - <http://localhost:8888/baas/schemas/app-collection>; rel=describedby
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Content-Type:
+      - application/json; charset=UTF-8; profile=http://localhost:8888/baas/schemas/app-collection
+    body:
+      encoding: US-ASCII
+      string: ! '{"items": [{"description": "bar", "name": "foo", "resource_id": "6a7b9031f4b648f4a41591c1ce148b2c"},
+        {"resource_id": "82917c4ed17f4cdf9ddd14c4147a379f", "description": "bar",
+        "name": "new_foo"}, {"description": "bar", "name": "foo", "resource_id": "474f6a6f08eb4baaa5049606105945d7"},
+        {"description": "My Awesome App", "name": "New App", "resource_id": "9b0d0333302a42d3bc8ee00b0afa2121"},
+        {"description": "Awesome Data, bro!", "name": "My Awesome App", "resource_id":
+        "2739e24966974d97bfb811758614eb47"}, {"description": "Awesome Data, bro!",
+        "name": "My Awesome App", "resource_id": "ca515fe0f5d74adeb58854faa1260cc8"},
+        {"description": "bar", "name": "foo", "resource_id": "ddb5fa2dbebf43d7be17faea7c180c09"},
+        {"resource_id": "87a6f3cb1f9343debd87c0450b1750e6", "description": "Awesome
+        Data, bro!", "name": "Another name, bro!"}, {"description": "Awesome Data,
+        bro!", "name": "My Awesome App", "resource_id": "facb7441e3ce49b7b620eb83da1c5e60"},
+        {"description": "Awesome Data, bro!", "name": "My Awesome App", "resource_id":
+        "cfefcd51700840b4bd1d3c81bd7577b5"}], "next_page": 2, "links": [{"href": "http://localhost:8888/baas/apps/{resource_id}",
+        "rel": "item"}, {"href": "http://localhost:8888/baas/apps/{resource_id}",
+        "method": "PATCH", "rel": "edit"}, {"href": "http://localhost:8888/baas/apps/{resource_id}",
+        "method": "PUT", "rel": "replace"}, {"href": "http://localhost:8888/baas/apps/{resource_id}",
+        "method": "DELETE", "rel": "delete"}, {"href": "http://localhost:8888/baas/apps",
+        "rel": "self"}, {"href": "http://localhost:8888/baas/apps", "method": "POST",
+        "rel": "create", "schema": {"$ref": "http://localhost:8888/baas/schemas/app"}},
+        {"href": "http://localhost:8888/baas/apps?page=2", "rel": "next"}], "item_count":
+        237}'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 17:42:50 GMT
+- request:
+    method: get
+    uri: http://localhost:8888/baas/schemas/app-collection
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '367'
+      Server:
+      - TornadoServer/2.4.1
+      Etag:
+      - ! '"5a1c821d55fe0e75bb01048c47e50c077bd9d5c3"'
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: US-ASCII
+      string: ! '{"links": [{"href": "http://localhost:8888/baas/apps", "rel": "self"},
+        {"href": "http://localhost:8888/baas/apps", "method": "POST", "rel": "create",
+        "schema": {"$ref": "http://localhost:8888/baas/schemas/app"}}, {"href": "http://localhost:8888/baas/apps?page={prev_page}",
+        "rel": "prev"}, {"href": "http://localhost:8888/baas/apps?page={next_page}",
+        "rel": "next"}]}'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 17:42:50 GMT
+- request:
+    method: post
+    uri: http://localhost:8888/baas/apps
+    body:
+      encoding: UTF-8
+      string: ! '{"name":"my_app","description":"app_desc"}'
+    headers:
+      Accept:
+      - ! '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '42'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Length:
+      - '0'
+      Server:
+      - TornadoServer/2.4.1
+      Location:
+      - http://localhost:8888/baas/apps/a9c9bd9d9aab41048db97ff48469fe60
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Content-Type:
+      - text/html; charset=UTF-8
+    body:
+      encoding: US-ASCII
+      string: ''
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 17:42:50 GMT
+recorded_with: VCR 2.5.0
