@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ```ruby
 require 'pluct'
-apps = Pluct::Resource.new('http://repos.backstage.globoi.com/')
+apps = Pluct::Resource.new('http://example.com/')
 app = apps.collection({context_name: 'test-baas', collection_name: 'apps'}).add({name: 'Minha nova app.', description: 'App description.'})
 
 p app.response.headers[:location]
