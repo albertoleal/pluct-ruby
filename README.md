@@ -1,3 +1,4 @@
+[![Build Status](https://drone.io/github.com/globocom/pluct-ruby/status.png)](https://drone.io/github.com/globocom/pluct-ruby/latest)
 # Pluct
 
 WIP
