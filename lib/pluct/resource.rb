@@ -17,7 +17,8 @@ module Pluct
       @data[method] || super
     end
 
-    private
+  private
+
     def self.create_methods(links=[])
       links.each do |link|
         define_method link["rel"] do |*args|

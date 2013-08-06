@@ -8,6 +8,7 @@ module Pluct
   autoload :Errors,   "pluct/errors"
   autoload :Helpers,  "pluct/helpers"
   autoload :JSON,     "pluct/extensions/json"
+  autoload :LinkDescriptionObject, "pluct/link_description_object"
   autoload :Resource, "pluct/resource"
   autoload :Schema,   "pluct/schema"
 
