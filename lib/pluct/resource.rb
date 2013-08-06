@@ -46,7 +46,6 @@ module Pluct
     def define_request_payload(uri_template, href, payload)
       template = Addressable::Template.new(uri_template)
       uri_template = template.extract(href)
-
       payload.delete_if{ |key, value| uri_template.include?(key) }
     end
   end
