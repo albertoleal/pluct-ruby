@@ -1,6 +1,5 @@
-#TODO: Returns Pluct::Response if there is no header, otherwise Pluct::Resource.
 module Pluct
-  class Resource 
+  class Resource
     include Pluct::Helpers::Request
 
     attr_reader :data, :response, :schema, :uri
@@ -9,7 +8,7 @@ module Pluct
       @uri = uri
       @response = response || get(@uri)
       @data ||= (JSON.is_json?(@response.body) ? JSON.parse(@response.body, {symbolize_names: true}) : {})
-      
+
       @schema = Schema.from_header(@response.headers)
       Resource.create_methods(@schema.links) if @schema
     end
@@ -28,7 +27,7 @@ module Pluct
 
           payload = query_string.dup
           if ['PATCH', 'PUT'].include? method
-            query_string.merge!(@data) 
+            query_string.merge!(@data)
           end
 
           uri = define_request_uri(href, query_string)
@@ -37,7 +36,7 @@ module Pluct
 
           response = send(method.downcase, uri, *options)
           Resource.new(uri, response)
-        end 
+        end
       end
     end
 
