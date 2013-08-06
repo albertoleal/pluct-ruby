@@ -1,7 +1,7 @@
 require 'addressable/template'
+require 'multi_json'
 require 'json'
 require 'pluct/extensions/json'
-require 'multi_json'
 require 'pluct/version'
 
 module Pluct
