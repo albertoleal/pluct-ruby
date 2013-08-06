@@ -24,16 +24,16 @@ module Pluct
         ldo = Pluct::LinkDescriptionObject.new(link)
 
         define_method link["rel"] do |*args|
-          query_string, *options = *args
+          params, *options = *args
 
           method = link["method"] || "GET"
 
           if ['PATCH', 'PUT'].include? method
-            query_string.merge!(@data)
+            params.merge!(@data)
           end
 
-          uri = ldo.expand_href(query_string)
-          payload = ldo.unused_mapping(query_string)
+          uri = ldo.expand_href(params)
+          payload = ldo.unused_mapping(params)
           options.unshift(payload)
 
           response = send(method.downcase, uri, *options)
