@@ -7,12 +7,13 @@ module Pluct
         'content-type' => 'application/json'
       }
 
-      protected
-      def get(url, *opts)
-        options = Hash[opts] if opts
-        resource = RestClient::Resource.new(url)
-        options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
-        resource.get(options)
+    protected
+
+      def get(url, data = nil, headers = nil)
+        headers = (headers ? DEFAULT_HEADERS.merge(headers) : DEFAULT_HEADERS)
+        options = headers.dup
+        options.merge!(params: data)
+        RestClient.get(url, options)
       rescue RestClient::Exception => e
         raise_exception(url, e)
       end

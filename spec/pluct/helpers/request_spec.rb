@@ -19,7 +19,7 @@ describe Pluct::Helpers::Request do
     end
   end
 
-    it 'returns 200 for valid request' do
+  it 'returns 200 for valid request' do
     body = File.read('spec/assets/user.json')
     stub_request(:get, 'http://www.example.com/success').to_return(body: body, status: 200)
     response = client.send(:get, 'http://www.example.com/success')
@@ -27,5 +27,13 @@ describe Pluct::Helpers::Request do
     WebMock.should have_requested(:get, "http://www.example.com/success").with(headers: {'Content-Type' => 'application/json'})
     expect(response.code).to eq 200
     expect(response.body).to eq body
+  end
+
+  describe "#get" do
+    it "should GET resource" do
+      RestClient.should_receive(:get).with(
+        "http://example.org", {params: {key: "value"}, "content-type" => "application/json"})
+      client.send(:get, "http://example.org", {key: "value"})
+    end
   end
 end
