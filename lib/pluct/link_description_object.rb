@@ -4,7 +4,7 @@ module Pluct
       @href = raw_link["href"]
     end
 
-    def expanded_href(mapping)
+    def expand_href(mapping)
       template = Addressable::Template.new(@href)
       Addressable::URI.parse(template.expand(mapping)).to_s
     end

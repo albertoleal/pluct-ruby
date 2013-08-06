@@ -21,6 +21,8 @@ module Pluct
 
     def self.create_methods(links=[])
       links.each do |link|
+        ldo = Pluct::LinkDescriptionObject.new(link)
+
         define_method link["rel"] do |*args|
           query_string, *options = *args
           method = link["method"] || "GET"
@@ -31,7 +33,7 @@ module Pluct
             query_string.merge!(@data)
           end
 
-          uri = define_request_uri(href, query_string)
+          uri = ldo.expand_href(query_string)
           payload = define_request_payload(href, uri, payload)
           options.unshift(payload)
 
@@ -39,11 +41,6 @@ module Pluct
           Resource.new(uri, response)
         end
       end
-    end
-
-    def define_request_uri(uri_template, query_string)
-      template = Addressable::Template.new(uri_template)
-      Addressable::URI.parse(template.expand(query_string)).to_s
     end
 
     def define_request_payload(uri_template, href, payload)
