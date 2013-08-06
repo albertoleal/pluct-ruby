@@ -25,28 +25,21 @@ module Pluct
 
         define_method link["rel"] do |*args|
           query_string, *options = *args
-          method = link["method"] || "GET"
-          href = link["href"]
 
-          payload = query_string.dup
+          method = link["method"] || "GET"
+
           if ['PATCH', 'PUT'].include? method
             query_string.merge!(@data)
           end
 
           uri = ldo.expand_href(query_string)
-          payload = define_request_payload(href, uri, payload)
+          payload = ldo.unused_mapping(query_string)
           options.unshift(payload)
 
           response = send(method.downcase, uri, *options)
           Resource.new(uri, response)
         end
       end
-    end
-
-    def define_request_payload(uri_template, href, payload)
-      template = Addressable::Template.new(uri_template)
-      uri_template = template.extract(href)
-      payload.delete_if{ |key, value| uri_template.include?(key) }
     end
   end
 end
