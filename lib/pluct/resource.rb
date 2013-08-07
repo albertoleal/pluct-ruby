@@ -28,12 +28,12 @@ module Pluct
 
           method = link["method"] || "GET"
 
-          if ['PATCH', 'PUT'].include? method
-            params.merge!(@data)
-          end
+          mapping = params.dup
+          mapping.merge!(@data)
 
-          uri = ldo.expand_href(params)
+          uri = ldo.expand_href(mapping)
           payload = ldo.unused_mapping(params)
+
           options.unshift(payload)
 
           response = send(method.downcase, uri, *options)
