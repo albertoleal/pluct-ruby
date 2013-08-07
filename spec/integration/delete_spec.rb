@@ -1,7 +1,7 @@
 require "spec_helper"
 
-describe "following a link with PATCH method", :vcr, cassette_name: "integration/patch" do
-  it "should PATCH resource" do
+describe "following a link with DELETE method", :vcr, cassette_name: "integration/delete" do
+  it "should DELETE resource" do
     root = Pluct::Resource.new("http://localhost:8888")
     resource = root.rel_collection({
       context_name: "pluct",
@@ -18,16 +18,14 @@ describe "following a link with PATCH method", :vcr, cassette_name: "integration
       context_name: "pluct",
       collection_name: "people",
       resource_id: resource_id
-    }).rel_update({name: "Alice PATCH"})
+    }).rel_delete
 
     expect(resource.response.code).to eq(204)
 
-    resource = root.rel_resource({
+    expect { root.rel_resource({
       context_name: "pluct",
       collection_name: "people",
       resource_id: resource_id
-    })
-
-    expect(resource.data[:name]).to eq("Alice PATCH")
+    }) }.to raise_error(Pluct::Errors::UrlNotFound)
   end
 end

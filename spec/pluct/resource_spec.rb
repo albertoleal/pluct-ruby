@@ -1,18 +1,18 @@
 require 'spec_helper'
 
 describe Pluct::Resource do
-  let(:schema) { mock(Pluct::Schema) }  
+  let(:schema) { mock(Pluct::Schema) }
 
   before(:each) do
-    stub_request(:get, 'www.example.com/users/1').to_return(body: File.read('spec/assets/user.json'), 
-                                                           status: 200, 
+    stub_request(:get, 'www.example.com/users/1').to_return(body: File.read('spec/assets/user.json'),
+                                                           status: 200,
                                                            headers: {'content-type' => 'application/json; charset=utf-8; profile=http://www.example.com/schemas/user'})
 
 
-    stub_request(:get, 'www.example.com/users/2').to_return(body: File.read('spec/assets/user.json'), 
+    stub_request(:get, 'www.example.com/users/2').to_return(body: File.read('spec/assets/user.json'),
                                                            status: 200)
-    
-    stub_request(:get, 'www.example.com/users/3').to_return(body: File.read('spec/assets/user.json'), 
+
+    stub_request(:get, 'www.example.com/users/3').to_return(body: File.read('spec/assets/user.json'),
                                                            status: 200,
                                                            headers: {'content-type' => 'application/json; charset=utf-8;'})
 
@@ -38,7 +38,7 @@ describe Pluct::Resource do
     it 'adds methods dynamically' do
       resource = Pluct::Resource.new('www.example.com/users/1')
 
-      methods = [:edit, :replace, :self, :delete, :create]
+      methods = [:rel_edit, :rel_replace, :rel_self, :rel_delete, :rel_create]
       methods.each do |method|
         expect(resource.class.instance_methods(false)).to include(method)
       end
@@ -59,6 +59,6 @@ describe Pluct::Resource do
 
       expect(resource.data).to_not be_nil
       expect(resource.schema).to be_nil
-    end    
+    end
   end
 end

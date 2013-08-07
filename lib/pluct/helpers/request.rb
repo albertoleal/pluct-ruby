@@ -27,11 +27,9 @@ module Pluct
         raise_exception(url, e)
       end
 
-      def delete(url, *opts)
-        options = Hash[opts] if opts
-        resource = RestClient::Resource.new(url)
-        options = (options ? DEFAULT_HEADERS.merge(options) : DEFAULT_HEADERS)
-        resource.delete(options)
+      def delete(url, headers = nil)
+        headers = (headers ? DEFAULT_HEADERS.merge(headers) : DEFAULT_HEADERS)
+        RestClient.delete(url, headers)
       rescue RestClient::Exception => e
         raise_exception(url, e)
       end

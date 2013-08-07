@@ -1,0 +1,464 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:8888/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Params:
+      - ''
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '2'
+      Server:
+      - TornadoServer/2.4.1
+      Etag:
+      - '"bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f"'
+      Link:
+      - <http://localhost:8888/root/schemas/root>; rel=describedby
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=UTF-8; profile=http://localhost:8888/root/schemas/root
+    body:
+      encoding: UTF-8
+      string: '{}'
+    http_version: 
+  recorded_at: Wed, 07 Aug 2013 03:42:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8888/root/schemas/root
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Params:
+      - ''
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '414'
+      Server:
+      - TornadoServer/2.4.1
+      Etag:
+      - '"26c5b90764472752bd035a39e9a521f804374711"'
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"$schema": "http://json-schema.org/draft-04/hyper-schema#", "type":
+        "object", "links": [{"href": "http://localhost:8888", "rel": "self"}, {"href":
+        "http://localhost:8888/{context_name}", "rel": "context"}, {"href": "http://localhost:8888/{context_name}/{collection_name}",
+        "rel": "collection"}, {"href": "http://localhost:8888/{context_name}/{collection_name}/{resource_id}",
+        "rel": "resource"}], "title": "Root"}'
+    http_version: 
+  recorded_at: Wed, 07 Aug 2013 03:42:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8888/pluct/people
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '833'
+      Server:
+      - TornadoServer/2.4.1
+      Etag:
+      - '"04454419fcbeda377685b63b67e2079fc682853c"'
+      Link:
+      - <http://localhost:8888/pluct/schemas/person-collection>; rel=describedby
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=UTF-8; profile=http://localhost:8888/pluct/schemas/person-collection
+    body:
+      encoding: UTF-8
+      string: '{"items": [{"name": "Alice", "resource_id": "c5a9f68fdd164b16b0a98b7fe1d92a45"},
+        {"name": "Alice", "resource_id": "e16f26dc099b490ab6500e76da8dd4a3"}, {"name":
+        "Alice", "resource_id": "e8f4b3bded62440d8260f96541143cb4"}, {"name": "Alice",
+        "resource_id": "2efaddd96b634a3481390a783aa4f9a2"}, {"name": "Alice", "resource_id":
+        "45a2f8d827a842ab8133e611dfc3963d"}, {"name": "Alice", "resource_id": "736d623fde46421ea3f98a35774cfbdc"},
+        {"name": "Alice", "resource_id": "112987725871472a9471d38cd9d03f75"}, {"name":
+        "Alice", "resource_id": "b5ee73d3ca0f44cf8a7a364ec46cbae8"}, {"name": "Alice",
+        "resource_id": "81d12d7b038f4f28b6d0abe80e694931"}, {"_resource_uri": "http://localhost:8888/pluct/people/ce9456e69884453e9870d47633a49716",
+        "name": "Alice", "resource_id": "ce9456e69884453e9870d47633a49716"}], "next_page":
+        2, "item_count": 21}'
+    http_version: 
+  recorded_at: Wed, 07 Aug 2013 03:42:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8888/pluct/schemas/person-collection
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Params:
+      - ''
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '732'
+      Server:
+      - TornadoServer/2.4.1
+      Etag:
+      - '"46465f1efd5fa543dd173c5b8eb61b6304d7aa71"'
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"links": [{"href": "http://localhost:8888/pluct/people", "rel": "self"},
+        {"href": "http://localhost:8888/pluct/people", "method": "POST", "rel": "add",
+        "schema": {"$ref": "http://localhost:8888/pluct/schemas/person-new"}}, {"href":
+        "http://localhost:8888/pluct/people?page={previous_page}", "rel": "previous"},
+        {"href": "http://localhost:8888/pluct/people?page={next_page}", "rel": "next"}],
+        "title": "Collection", "required": ["items"], "$schema": "http://json-schema.org/draft-04/hyper-schema#",
+        "type": "object", "properties": {"items": {"items": {"$ref": "http://localhost:8888/pluct/schemas/person"},
+        "type": "array"}, "previous_page": {"type": "integer"}, "next_page": {"type":
+        "integer"}, "item_count": {"type": "integer"}}}'
+    http_version: 
+  recorded_at: Wed, 07 Aug 2013 03:42:32 GMT
+- request:
+    method: post
+    uri: http://localhost:8888/pluct/people
+    body:
+      encoding: UTF-8
+      string: '{"name":"Alice"}'
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '16'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Length:
+      - '0'
+      Server:
+      - TornadoServer/2.4.1
+      Location:
+      - http://localhost:8888/pluct/people/27bfe86dfb2e48abb509f3a8559436e3
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - text/html; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 07 Aug 2013 03:42:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8888/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Params:
+      - ''
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '2'
+      Server:
+      - TornadoServer/2.4.1
+      Etag:
+      - '"bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f"'
+      Link:
+      - <http://localhost:8888/root/schemas/root>; rel=describedby
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=UTF-8; profile=http://localhost:8888/root/schemas/root
+    body:
+      encoding: UTF-8
+      string: '{}'
+    http_version: 
+  recorded_at: Wed, 07 Aug 2013 03:42:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8888/root/schemas/root
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Params:
+      - ''
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '414'
+      Server:
+      - TornadoServer/2.4.1
+      Etag:
+      - '"26c5b90764472752bd035a39e9a521f804374711"'
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"$schema": "http://json-schema.org/draft-04/hyper-schema#", "type":
+        "object", "links": [{"href": "http://localhost:8888", "rel": "self"}, {"href":
+        "http://localhost:8888/{context_name}", "rel": "context"}, {"href": "http://localhost:8888/{context_name}/{collection_name}",
+        "rel": "collection"}, {"href": "http://localhost:8888/{context_name}/{collection_name}/{resource_id}",
+        "rel": "resource"}], "title": "Root"}'
+    http_version: 
+  recorded_at: Wed, 07 Aug 2013 03:42:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8888/pluct/people/27bfe86dfb2e48abb509f3a8559436e3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '156'
+      Server:
+      - TornadoServer/2.4.1
+      Etag:
+      - '"5460e148eb9b7d0ce4924d04298c0e8139a3c466"'
+      Link:
+      - <http://localhost:8888/pluct/schemas/person>; rel=describedby
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=UTF-8; profile=http://localhost:8888/pluct/schemas/person
+    body:
+      encoding: UTF-8
+      string: '{"_resource_uri": "http://localhost:8888/pluct/people/27bfe86dfb2e48abb509f3a8559436e3",
+        "name": "Alice", "resource_id": "27bfe86dfb2e48abb509f3a8559436e3"}'
+    http_version: 
+  recorded_at: Wed, 07 Aug 2013 03:42:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8888/pluct/schemas/person
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Params:
+      - ''
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '869'
+      Server:
+      - TornadoServer/2.4.1
+      Etag:
+      - '"4bd0cf12c29e056e89ec5a6d5513825098dceb8d"'
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"links": [{"href": "http://localhost:8888/pluct/people/{resource_id}",
+        "rel": "self"}, {"href": "http://localhost:8888/pluct/people/{resource_id}",
+        "rel": "item"}, {"href": "http://localhost:8888/pluct/people/{resource_id}",
+        "method": "PATCH", "rel": "update", "schema": {"$ref": "http://localhost:8888/pluct/schemas/person"}},
+        {"href": "http://localhost:8888/pluct/people/{resource_id}", "method": "PUT",
+        "rel": "replace", "schema": {"$ref": "http://localhost:8888/pluct/schemas/person"}},
+        {"href": "http://localhost:8888/pluct/people/{resource_id}", "method": "DELETE",
+        "rel": "delete", "schema": {"$ref": "http://localhost:8888/pluct/schemas/person"}}],
+        "title": "Person", "collection_name": "people", "resource_id": "person", "$schema":
+        "http://json-schema.org/draft-04/hyper-schema#", "type": "object", "properties":
+        {"name": {"type": "string", "title": "Name"}}}'
+    http_version: 
+  recorded_at: Wed, 07 Aug 2013 03:42:32 GMT
+- request:
+    method: delete
+    uri: http://localhost:8888/pluct/people/27bfe86dfb2e48abb509f3a8559436e3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - max-age=0
+      Content-Type:
+      - text/html; charset=UTF-8
+      Content-Length:
+      - '0'
+      Server:
+      - TornadoServer/2.4.1
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 07 Aug 2013 03:42:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8888/pluct/people/27bfe86dfb2e48abb509f3a8559436e3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - max-age=0
+      Content-Type:
+      - text/html; charset=UTF-8
+      Content-Length:
+      - '0'
+      Server:
+      - TornadoServer/2.4.1
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 07 Aug 2013 03:42:32 GMT
+recorded_with: VCR 2.5.0

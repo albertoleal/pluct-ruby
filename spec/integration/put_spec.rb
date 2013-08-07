@@ -3,10 +3,10 @@ require "spec_helper"
 describe "following a link with PUT method", :vcr, cassette_name: "integration/put" do
   it "should PUT resource" do
     root = Pluct::Resource.new("http://localhost:8888")
-    resource = root.collection({
+    resource = root.rel_collection({
       context_name: "pluct",
       collection_name: "people"
-    }).add({name: "Alice"})
+    }).rel_add({name: "Alice"})
 
     expect(resource.response.code).to eq(201)
 
@@ -14,15 +14,15 @@ describe "following a link with PUT method", :vcr, cassette_name: "integration/p
     resource_id = location.path.split("/")[3]
 
     root = Pluct::Resource.new("http://localhost:8888")
-    resource = root.resource({
+    resource = root.rel_resource({
       context_name: "pluct",
       collection_name: "people",
       resource_id: resource_id
-    }).replace({name: "Alice PUT"})
+    }).rel_replace({name: "Alice PUT"})
 
     expect(resource.response.code).to eq(204)
 
-    resource = root.resource({
+    resource = root.rel_resource({
       context_name: "pluct",
       collection_name: "people",
       resource_id: resource_id

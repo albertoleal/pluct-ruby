@@ -23,8 +23,9 @@ module Pluct
       links.each do |link|
         ldo = Pluct::LinkDescriptionObject.new(link)
 
-        define_method link["rel"] do |*args|
+        define_method "rel_#{link["rel"]}" do |*args|
           params, *options = *args
+          params ||= {}
 
           method = link["method"] || "GET"
 
