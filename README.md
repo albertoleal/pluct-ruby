@@ -22,7 +22,7 @@ Or install it yourself as:
 ```ruby
 require 'pluct'
 apps = Pluct::Resource.new('http://example.com/')
-app = apps.collection({context_name: 'test-baas', collection_name: 'apps'}).add({name: 'My Awesome app.', description: 'App description.'})
+app = apps.rel_collection({context_name: 'test-baas', collection_name: 'apps'}).add({name: 'My Awesome app.', description: 'App description.'})
 
 p app.response.headers[:location]
 ```
